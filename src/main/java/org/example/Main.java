@@ -1,11 +1,11 @@
 package org.example;
 
 import org.example.utils.FieldPrinter;
+import org.example.utils.JsonPrinter;
 
-import java.lang.reflect.AnnotatedType;
-import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -13,15 +13,28 @@ public class Main {
 
         //Given
         Example example1 = new Example();
-
         HashMap<String, Integer> aMapStringInteger = new HashMap<>();
         aMapStringInteger.put("a", 1);
-        Example example2 = new Example(1,2.2,'a',"Str",123, aMapStringInteger);
+        List<String> aListStringInteger = new ArrayList<>();
+        aListStringInteger.add("asdhsfadf");
+        aListStringInteger.add("asdf");
+        aListStringInteger.add("asdf");
+        aListStringInteger.add("");
+        List<Map<String, Integer>> aListMapStringInteger = new ArrayList<>();
+        aListMapStringInteger.add(aMapStringInteger);
+        aListMapStringInteger.add(new HashMap<>());
+        Example example2 = new Example(0,0,'0',"",123,
+                aMapStringInteger, aListStringInteger, aListMapStringInteger);
 
         //Reflection
-        FieldPrinter.print(example2);
+        FieldPrinter fieldPrinter = new FieldPrinter();
+//        fieldPrinter.print(example2);
+
+        JsonPrinter jsonPrinter = new JsonPrinter();
+        jsonPrinter.print(example2);
 
         //Handler
+
     }
 }
 

@@ -4,10 +4,11 @@ import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-public class FieldPrinter {
+public class FieldPrinter implements Printer {
 
-    public static void print(Object object) throws IllegalAccessException {
-        Class<?> objectClass = object.getClass();
+    @Override
+    public void print(Object obj) {
+        Class<?> objectClass = obj.getClass();
 
         System.out.println("objectClass = " + objectClass);
 
@@ -15,16 +16,21 @@ public class FieldPrinter {
 
         System.out.println("declaredFields = " + Arrays.toString(declaredFields));
 
-        for (Field field : declaredFields) {
-            String name = field.getName();
-            AnnotatedType annotatedType = field.getAnnotatedType();
-            field.setAccessible(true);
-            Object o = field.get(object);
+        try {
+            for (Field field : declaredFields) {
+                String name = field.getName();
+                AnnotatedType annotatedType = field.getAnnotatedType();
+                field.setAccessible(true);
+                Object o = field.get(obj);
 
-            System.out.println("name = " + name);
-            System.out.println("annotatedType = " + annotatedType);
-            System.out.println("object before = " + o);
-            System.out.println();
+                System.out.println("name = " + name);
+                System.out.println("annotatedType = " + annotatedType);
+                System.out.println("object before = " + o);
+                System.out.println();
+            }
+        }
+        catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }
