@@ -1,13 +1,9 @@
 package org.example;
 
-import org.example.utils.FieldPrinter;
-import org.example.utils.JsonPrinter;
-import org.example.utils.JsonWriter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.example.entity.Example;
+import org.example.entity.NestedExample;
+import org.example.utils.current.DataProvider;
+import org.example.utils.current.JsonWriter;
 
 
 
@@ -17,29 +13,18 @@ public class Main {
         //Given
         Example example1 = new Example();
 
-        HashMap<String, Integer> aMapStringInteger = new HashMap<>();
-        aMapStringInteger.put("a", 1);
-        List<String> aListStringInteger = new ArrayList<>();
-        aListStringInteger.add("asdhsfadf");
-        aListStringInteger.add("asdf");
-        aListStringInteger.add("asdf");
-        aListStringInteger.add("");
-        List<Map<String, Integer>> aListMapStringInteger = new ArrayList<>();
-        aListMapStringInteger.add(aMapStringInteger);
-        aListMapStringInteger.add(new HashMap<>());
-        Example example2 = new Example(0,0,'0',"",123,
-                aMapStringInteger, aListStringInteger, aListMapStringInteger);
+        Example example2 = DataProvider.createExample(false);
+
+        NestedExample example3 = DataProvider.createNestedExample(false);
 
         //Reflection
-        FieldPrinter fieldPrinter = new FieldPrinter();
-//        fieldPrinter.print(example2);
-
-        JsonPrinter jsonPrinter = new JsonPrinter();
-        jsonPrinter.print(example2);
 
         //Handler
         String filename = example2.getClass().getSimpleName();
-        JsonWriter.write(example2, "%s.json".formatted(filename));
+        JsonWriter.write(example2, "src/main/resources/temp/%s.json".formatted(filename));
+
+        String filename2 = example3.getClass().getSimpleName();
+        JsonWriter.write(example3, "src/main/resources/temp/%s.json".formatted(filename2));
     }
 }
 

@@ -1,6 +1,4 @@
-package org.example.utils;
-
-import org.example.JsonFormat;
+package org.example.utils.current;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,10 +6,10 @@ import java.io.IOException;
 public class JsonWriter {
     public static void write(Object obj, String fileName){
         try {
-            FileWriter myWriter = new FileWriter(fileName);
+            FileWriter writer = new FileWriter(fileName);
             JsonFormat jsonFormat = new JsonFormat(obj);
-            myWriter.write(jsonFormat.json.toString());
-            myWriter.close();
+            writer.write(jsonFormat.toString());
+            writer.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example.utils.depricated;
 
 import java.lang.reflect.Field;
 import java.util.List;

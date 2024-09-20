@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example.utils.depricated;
 
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
