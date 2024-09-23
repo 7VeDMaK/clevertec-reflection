@@ -1,4 +1,4 @@
-    package org.example.utils.current.formatter;
+    package org.example.utils.current.javaToJson.formatter;
 
     public class DefaultFormatter implements ValueFormatter {
 

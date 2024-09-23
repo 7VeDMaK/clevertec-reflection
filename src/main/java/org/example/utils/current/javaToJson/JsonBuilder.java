@@ -1,7 +1,7 @@
-package org.example.utils.current;
+package org.example.utils.current.javaToJson;
 
-import org.example.utils.current.formatter.IndentFormatter;
-import org.example.utils.current.formatter.ValueFormatterFactory;
+import org.example.utils.current.javaToJson.formatter.IndentFormatter;
+import org.example.utils.current.javaToJson.formatter.ValueFormatterFactory;
 
 import java.lang.reflect.Field;
 

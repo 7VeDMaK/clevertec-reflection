@@ -1,4 +1,4 @@
-package org.example.utils.current;
+package org.example.utils.current.javaToJson;
 
 import java.io.FileWriter;
 import java.io.IOException;

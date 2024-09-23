@@ -1,4 +1,4 @@
-package org.example.utils.current;
+package org.example.utils.current.javaToJson;
 
 import org.example.entity.Customer;
 import org.example.entity.Example;

@@ -1,4 +1,4 @@
-package org.example.utils.current;
+package org.example.utils.current.javaToJson;
 
 public class JsonFormat {
     private StringBuilder json;
