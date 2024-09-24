@@ -41,7 +41,7 @@ public class Main {
         Customer customer;
         try {
             String json1 = JsonReader.readJsonFromFile(("src/main/resources/temp/%s.json").formatted(filename1));
-//            example = JsonParser.parse(json1, Example.class);
+            example = JsonParser.parse(json1, Example.class);
 
             String json3 = JsonReader.readJsonFromFile(("src/main/resources/temp/%s.json").formatted(filename3));
             customer = JsonParser.parse(json3, Customer.class);
@@ -50,8 +50,8 @@ public class Main {
         }
 
         //Check
-//        String filename4 = example.getClass().getSimpleName();
-//        JsonWriter.write(example, "src/main/resources/temp/check/%s.json".formatted(filename4));
+        String filename4 = example.getClass().getSimpleName();
+        JsonWriter.write(example, "src/main/resources/temp/check/%s.json".formatted(filename4));
 
         String filename6 = customer.getClass().getSimpleName();
         JsonWriter.write(customer, "src/main/resources/temp/check/%s.json".formatted(filename6));

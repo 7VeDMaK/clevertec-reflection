@@ -158,7 +158,9 @@ public class JsonParser {
             } else {
                 key = keyClass.cast(rawKey);
             }
-
+            if (keyValue.length == 1) {
+                return map;
+            }
             V value;
             String rawValue = keyValue[1].trim();
 
